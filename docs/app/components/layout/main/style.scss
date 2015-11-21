@@ -15,26 +15,26 @@
 
 .documentation {
   position: fixed;
-  top: $appbar-height;
+  top: 0;
   right: 0;
   bottom: 0;
   left: 0;
+  background-color: $documentation-background;
   transition: all $animation-duration $animation-curve-default;
 }
 
 .navigation {
   position: fixed;
-  top: $appbar-height;
+  top: 0;
   bottom: 0;
   left: 0;
   z-index: $z-index-high;
-  box-shadow: $documentation-left-shadow;
   transition: all $animation-duration $animation-curve-default;
 }
 
 .playground {
   position: fixed;
-  top: $appbar-height;
+  top: 0;
   bottom: 0;
   z-index: $z-index-high;
   width: $playground-width;

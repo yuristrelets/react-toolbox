@@ -73,7 +73,6 @@ class Main extends React.Component {
 
     return (
       <div className={className}>
-        <Appbar className={style.appbar}/>
         <Button
           accent
           floating

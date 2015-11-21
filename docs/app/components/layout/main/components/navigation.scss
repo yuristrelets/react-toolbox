@@ -4,7 +4,52 @@
   display: flex;
   width: $navigation-width;
   flex-direction: column;
-  background-color: $color-background;
+  background-color: $navigation-background;
+  border-right: $navigation-border;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  color: $color-text;
+  border-bottom: $navigation-border;
+  .heading {
+    font-size: $navigation-heading-font-size;
+    font-weight: $font-weight-semi-bold;
+  }
+  .logo {
+    width: $navigation-logo-size;
+    height: $navigation-logo-size;
+    margin: $navigation-v-padding $navigation-h-padding;
+    fill: $color-primary-light;
+  }
+}
+
+.finder {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin-left: 0 !important;
+  > input, > i {
+    height: $navigation-finder-height;
+  }
+  > i {
+    top: 0;
+    left: 0;
+    width: auto;
+    margin-left: $navigation-h-padding;
+  }
+  > input {
+    padding: 0 0 0 ($navigation-finder-height + ($navigation-h-padding / 2));
+    font-size: $font-size-small;
+    border-bottom: $navigation-border;
+    &:focus {
+      background-color: $documentation-background;
+    }
+  }
+  > span {
+    display: none;
+  }
 }
 
 .list {
@@ -28,9 +73,9 @@
   flex-grow: 0;
   padding: $navigation-h-padding;
   overflow: hidden;
-  font-size: $font-size-small;
+  font-size: $font-size-tiny;
   color: $color-text-secondary;
-  border-top: $navigation-footer-border;
+  border-top: $navigation-border;
   > * {
     display: block;
   }

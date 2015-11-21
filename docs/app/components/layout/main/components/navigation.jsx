@@ -1,7 +1,8 @@
 import React from 'react';
-import { History } from 'react-router';
-import { List, ListItem } from 'react-toolbox';
+import { History, Link } from 'react-router';
+import { Input, List, ListItem } from 'react-toolbox';
 import components from '../modules/components';
+import Logo from '../../../logo';
 import style from './navigation.scss';
 
 const MainNavigation = React.createClass({
@@ -9,6 +10,10 @@ const MainNavigation = React.createClass({
 
   propTypes: {
     active: React.PropTypes.bool
+  },
+
+  handleSearchChange: () => {
+    console.log('handleSearchChange', arguments);
   },
 
   renderDrawerItems () {
@@ -38,6 +43,19 @@ const MainNavigation = React.createClass({
 
     return (
       <aside className={className}>
+        <header className={style.header}>
+          <Link to='/'>
+            <Logo className={style.logo} />
+          </Link>
+          <h1 className={style.heading}>Components</h1>
+        </header>
+        <Input
+          className={style.finder}
+          icon='search'
+          onChange={this.handleSearchChange}
+          placeholder='Search Components'
+          type='search'
+        />
         <List className={style.list} selectable ripple>
           { this.renderDrawerItems() }
         </List>
