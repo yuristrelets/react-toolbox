@@ -13,6 +13,7 @@
   align-items: center;
   color: $color-text;
   border-bottom: $navigation-border;
+  min-height: $navigation-header-height;
   .heading {
     font-size: $navigation-heading-font-size;
     font-weight: $font-weight-semi-bold;
@@ -20,7 +21,7 @@
   .logo {
     width: $navigation-logo-size;
     height: $navigation-logo-size;
-    margin: $navigation-v-padding $navigation-h-padding;
+    margin: $navigation-v-padding ($navigation-h-padding / 2) $navigation-v-padding $navigation-h-padding;
     fill: $color-primary-light;
   }
 }
@@ -61,12 +62,15 @@
   padding: $navigation-v-padding $navigation-h-padding;
   > span > span {
     font-size: $font-size-small;
-    font-weight: $font-weight-semi-bold;
+    font-weight: $font-weight-normal;
   }
 }
 
 .active {
-  background: $color-divider;
+  // background: darken($color-accent, 5);
+  > span > span {
+    font-weight: $font-weight-bold;
+  }
 }
 
 .footer {

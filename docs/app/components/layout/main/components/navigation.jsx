@@ -47,7 +47,7 @@ const MainNavigation = React.createClass({
           <Link to='/'>
             <Logo className={style.logo} />
           </Link>
-          <h1 className={style.heading}>Components</h1>
+          <h1 className={style.heading}>React Toolbox</h1>
         </header>
         <Input
           className={style.finder}
