@@ -63,6 +63,9 @@
     > .documentation {
       padding-right: $playground-width;
       padding-left: 0;
+      h1 {
+        left: 0;
+      }
     }
     > .navigation {
       transform: translateX(- 100%);
