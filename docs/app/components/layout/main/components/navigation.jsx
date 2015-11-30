@@ -16,7 +16,20 @@ const MainNavigation = React.createClass({
     console.log('handleSearchChange', arguments);
   },
 
-  renderDrawerItems () {
+  renderDrawerDocs () {
+    return (
+      <List className={style.list} selectable ripple>
+        <ListItem
+          className={style.item}
+          caption='Installation'
+          selectable
+          to='#/install'
+        />
+      </List>
+    )
+  },
+
+  renderDrawerComponents () {
     return Object.keys(components).map((key) => {
       const ToolboxComponent = components[key];
       const to = this.context.history.createHref(ToolboxComponent.path);
@@ -49,6 +62,7 @@ const MainNavigation = React.createClass({
           </Link>
           <h1 className={style.heading}>React Toolbox</h1>
         </header>
+        { this.renderDrawerDocs() }
         <Input
           className={style.finder}
           icon='search'
@@ -57,7 +71,7 @@ const MainNavigation = React.createClass({
           type='search'
         />
         <List className={style.list} selectable ripple>
-          { this.renderDrawerItems() }
+          { this.renderDrawerComponents() }
         </List>
         <footer className={style.footer}>
           <span>React Toolbox © 2015</span>

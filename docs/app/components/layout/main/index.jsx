@@ -6,6 +6,7 @@ import Markdown from '../../../components/markdown';
 import Playground from './components/playground';
 import MainNavigation from './components/navigation';
 import BaseDocs from './modules/components.md';
+import InstallMD from './modules/install.md';
 import components from './modules/components.js';
 import style from './style';
 
@@ -59,7 +60,9 @@ class Main extends React.Component {
   resolveMarkdown () {
     const PLACEHOLDER = /<!-- example -->/g;
     const NODE = `<span class='${style['load-button']} ${this.LOAD_EXAMPLE_CLASS}'></span>`;
-    if (this.props.params.component) {
+    if (this.props.params.context === 'install') {
+      return InstallMD;
+    } else if (this.props.params.component) {
       return components[this.props.params.component].docs.replace(PLACEHOLDER, NODE);
     } else {
       return BaseDocs;
@@ -70,7 +73,6 @@ class Main extends React.Component {
     let className = style.root;
     const docs = this.resolveMarkdown();
     if (this.state.playground) className += ` ${style['with-playground']}`;
-
     return (
       <div className={className}>
         <Button

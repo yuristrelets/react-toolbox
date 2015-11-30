@@ -10,10 +10,10 @@
 
 .header {
   display: flex;
+  min-height: $navigation-header-height;
   align-items: center;
   color: $color-text;
   border-bottom: $navigation-border;
-  min-height: $navigation-header-height;
   .heading {
     font-size: $navigation-heading-font-size;
     font-weight: $font-weight-semi-bold;
@@ -43,6 +43,7 @@
   > input {
     padding: 0 0 0 ($navigation-finder-height + ($navigation-h-padding / 2));
     font-size: $font-size-small;
+    border-top: $navigation-border;
     border-bottom: $navigation-border;
     &:focus {
       background-color: $documentation-background;
@@ -54,7 +55,9 @@
 }
 
 .list {
+  min-height: 4.8 * $unit;
   flex-grow: 1;
+  padding: 0;
   overflow-y: auto;
 }
 
