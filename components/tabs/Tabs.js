@@ -58,12 +58,17 @@ class Tabs extends React.Component {
     clearTimeout(this.pointerTimeout);
     this.pointerTimeout = setTimeout(() => {
       const startPoint = this.refs.tabs.getBoundingClientRect().left;
-      const label = this.refs.navigation.children[idx].getBoundingClientRect();
+      const child = this.refs.navigation.children[idx];
+      const rect = child ? child.getBoundingClientRect() : null;
+
+      const width = rect ? rect.width : 0;
+      const left = rect ? rect.left - startPoint : 0;
+
       this.setState({
         pointer: {
           top: `${this.refs.navigation.getBoundingClientRect().height}px`,
-          left: `${label.left - startPoint}px`,
-          width: `${label.width}px`
+          left: `${left}px`,
+          width: `${width}px`
         }
       });
     }, 20);
