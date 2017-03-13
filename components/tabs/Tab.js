@@ -1,5 +1,6 @@
 import React from 'react';
 import ClassNames from 'classnames';
+import IconButton from '../button/IconButton';
 import style from './style';
 
 class TabHeader extends React.Component {
@@ -11,14 +12,18 @@ class TabHeader extends React.Component {
     hidden: React.PropTypes.bool,
     label: React.PropTypes.any.isRequired,
     onActive: React.PropTypes.func,
-    onClick: React.PropTypes.func
+    onClick: React.PropTypes.func,
+    allowRemove: React.PropTypes.bool,
+    removeButtonTitle: React.PropTypes.string,
+    onRemove: React.PropTypes.func
   };
 
   static defaultProps = {
     active: false,
     className: '',
     disabled: false,
-    hidden: false
+    hidden: false,
+    allowRemove: false
   };
 
   componentDidUpdate (prevProps) {
@@ -33,6 +38,14 @@ class TabHeader extends React.Component {
     }
   };
 
+  handleRemove = (event) => {
+    if (!this.props.disabled && this.props.onRemove) {
+      event.stopPropagation();
+
+      this.props.onRemove(event);
+    }
+  };
+
   render () {
     const className = ClassNames(style.label, {
       [style.active]: this.props.active,
@@ -44,6 +57,14 @@ class TabHeader extends React.Component {
     return (
       <label data-react-toolbox='tab' className={className} onClick={this.handleClick}>
         {this.props.label}
+
+        {this.props.allowRemove ? (
+          <IconButton
+            icon="cancel"
+            className={style.remove}
+            onClick={this.handleRemove}
+          />
+        ) : null}
       </label>
     );
   }

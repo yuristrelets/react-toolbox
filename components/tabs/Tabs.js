@@ -9,13 +9,16 @@ class Tabs extends React.Component {
     children: React.PropTypes.node,
     className: React.PropTypes.string,
     disableAnimatedBottomBorder: React.PropTypes.bool,
+    addTabButtonDisabled: React.PropTypes.disabled,
     index: React.PropTypes.number,
     onChange: React.PropTypes.func,
-    onAddTab: React.PropTypes.func
+    onAddTab: React.PropTypes.func,
+    onRemoveTab: React.PropTypes.func
   };
 
   static defaultProps = {
-    index: 0
+    index: 0,
+    addTabButtonDisabled: false
   };
 
   state = {
@@ -36,6 +39,10 @@ class Tabs extends React.Component {
 
   handleHeaderClick = (idx) => {
     if (this.props.onChange) this.props.onChange(idx);
+  };
+
+  handleHeaderRemove = (idx) => {
+    if (this.props.onRemoveTab) this.props.onRemoveTab(idx);
   };
 
   parseChildren () {
@@ -81,7 +88,8 @@ class Tabs extends React.Component {
       return React.cloneElement(item, {
         key: idx,
         active: this.props.index === idx,
-        onClick: this.handleHeaderClick.bind(this, idx, item)
+        onClick: this.handleHeaderClick.bind(this, idx, item),
+        onRemove: this.handleHeaderRemove.bind(this, idx)
       });
     });
   }
@@ -111,7 +119,12 @@ class Tabs extends React.Component {
           {this.renderHeaders(headers)}
 
           {this.props.onAddTab ? (
-            <IconButton className={style.add} icon="add" onClick={this.props.onAddTab} />
+            <IconButton
+              icon="add"
+              className={style.add}
+              onClick={this.props.onAddTab}
+              disabled={this.props.addTabButtonDisabled}
+            />
           ) : null}
         </nav>
         <span className={style.pointer} style={this.state.pointer} />
