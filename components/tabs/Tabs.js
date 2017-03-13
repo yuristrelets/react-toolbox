@@ -1,6 +1,7 @@
 import React from 'react';
 import Tab from './Tab';
 import TabContent from './TabContent';
+import IconButton from '../button/IconButton';
 import style from './style';
 
 class Tabs extends React.Component {
@@ -9,7 +10,8 @@ class Tabs extends React.Component {
     className: React.PropTypes.string,
     disableAnimatedBottomBorder: React.PropTypes.bool,
     index: React.PropTypes.number,
-    onChange: React.PropTypes.func
+    onChange: React.PropTypes.func,
+    onAddTab: React.PropTypes.func
   };
 
   static defaultProps = {
@@ -107,6 +109,10 @@ class Tabs extends React.Component {
       <div ref='tabs' data-react-toolbox='tabs' className={className}>
         <nav className={style.navigation} ref='navigation'>
           {this.renderHeaders(headers)}
+
+          {this.props.onAddTab ? (
+            <IconButton className={style.add} icon="add" onClick={this.props.onAddTab} />
+          ) : null}
         </nav>
         <span className={style.pointer} style={this.state.pointer} />
         {this.renderContents(contents)}
