@@ -9,7 +9,7 @@ class Tabs extends React.Component {
     children: React.PropTypes.node,
     className: React.PropTypes.string,
     disableAnimatedBottomBorder: React.PropTypes.bool,
-    addTabButtonDisabled: React.PropTypes.disabled,
+    addTabButtonDisabled: React.PropTypes.bool,
     index: React.PropTypes.number,
     onChange: React.PropTypes.func,
     onAddTab: React.PropTypes.func,

@@ -62,17 +62,24 @@
 }
 
 .add {
-  margin-left: 8px;
+  margin-left: 4px;
 
   > span {
     color: white;
   }
+
+  &[disabled] {
+    > span {
+      color: rgba(255, 255, 255, .3);
+    }
+  }
 }
 
 .remove {
-  margin-left: 8px;
+  margin: 0 -8px 0 4px;
 
   > span {
+    font-size: 24px;
     color: rgba(255, 255, 255, .7);
   }
 }
