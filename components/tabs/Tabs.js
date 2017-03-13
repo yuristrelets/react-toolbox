@@ -9,6 +9,7 @@ class Tabs extends React.Component {
     children: React.PropTypes.node,
     className: React.PropTypes.string,
     disableAnimatedBottomBorder: React.PropTypes.bool,
+    addTabButtonTitle: React.PropTypes.string,
     addTabButtonDisabled: React.PropTypes.bool,
     index: React.PropTypes.number,
     onChange: React.PropTypes.func,
@@ -123,6 +124,7 @@ class Tabs extends React.Component {
               icon="add"
               className={style.add}
               onClick={this.props.onAddTab}
+              title={this.props.addTabButtonTitle}
               disabled={this.props.addTabButtonDisabled}
             />
           ) : null}

@@ -33,6 +33,8 @@ class TabHeader extends React.Component {
   }
 
   handleClick = (event) => {
+    event.preventDefault();
+
     if (!this.props.disabled && this.props.onClick) {
       this.props.onClick(event);
     }
@@ -63,6 +65,7 @@ class TabHeader extends React.Component {
             icon="cancel"
             className={style.remove}
             onClick={this.handleRemove}
+            title={this.props.removeButtonTitle}
           />
         ) : null}
       </label>
