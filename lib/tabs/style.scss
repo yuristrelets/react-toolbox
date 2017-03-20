@@ -69,6 +69,8 @@
   }
 
   &[disabled] {
+    cursor: not-allowed;
+
     > span {
       color: rgba(255, 255, 255, .3);
     }
@@ -81,8 +83,14 @@
   margin-left: 12px;
 
   > span {
+    opacity: .7;
     font-size: 24px;
+    color: rgb(255, 255, 255);
     line-height: 20px!important;
-    color: rgba(255, 255, 255, .7);
+    transition: opacity .3s ease;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 }
