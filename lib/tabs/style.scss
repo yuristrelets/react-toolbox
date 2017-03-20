@@ -94,5 +94,9 @@
     &:hover {
       opacity: 1;
     }
+
+    &:last-child {
+      display: none;
+    }
   }
 }
