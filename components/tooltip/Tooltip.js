@@ -9,7 +9,7 @@ const Tooltip = (ComposedComponent) => class extends React.Component {
     onClick: React.PropTypes.func,
     onMouseEnter: React.PropTypes.func,
     onMouseLeave: React.PropTypes.func,
-    tooltip: React.PropTypes.string,
+    tooltip: React.PropTypes.node,
     tooltipDelay: React.PropTypes.number,
     tooltipHideOnClick: React.PropTypes.bool
   };
@@ -24,20 +24,33 @@ const Tooltip = (ComposedComponent) => class extends React.Component {
     active: false
   };
 
+  timeout = null;
+
+  componentWillUnmount() {
+    this.clearTimeout();
+  }
+
+  clearTimeout() {
+    if (this.timeout) {
+      clearTimeout(this.timeout);
+      this.timeout = null;
+    }
+  }
+
   handleMouseEnter = (event) => {
-    if (this.timeout) clearTimeout(this.timeout);
+    this.clearTimeout();
     this.timeout = setTimeout(() =>this.setState({active: true}), this.props.tooltipDelay);
     if (this.props.onMouseEnter) this.props.onMouseEnter(event);
   };
 
   handleMouseLeave = (event) => {
-    if (this.timeout) clearTimeout(this.timeout);
+    this.clearTimeout();
     if (this.state.active) this.setState({active: false});
     if (this.props.onMouseLeave) this.props.onMouseLeave(event);
   };
 
   handleClick = (event) => {
-    if (this.timeout) clearTimeout(this.timeout);
+    this.clearTimeout();
     if (this.props.tooltipHideOnClick) this.setState({active: false});
     if (this.props.onClick) this.props.onClick(event);
   };
