@@ -2,10 +2,10 @@ import React from 'react';
 import ClassNames from 'classnames';
 import style from './style';
 
-const POSITION_TOP = 'top';
-const POSITION_BOTTOM = 'bottom';
+const Tooltip = (ComposedComponent) => class TooltipWrapper extends React.Component {
+  static POSITION_TOP = 'top';
+  static POSITION_BOTTOM = 'bottom';
 
-const Tooltip = (ComposedComponent) => class extends React.Component {
   static propTypes = {
     children: React.PropTypes.any,
     className: React.PropTypes.string,
@@ -16,8 +16,8 @@ const Tooltip = (ComposedComponent) => class extends React.Component {
     tooltipDelay: React.PropTypes.number,
     tooltipHideOnClick: React.PropTypes.bool,
     tooltipPosition: React.PropTypes.oneOf([
-      POSITION_TOP,
-      POSITION_BOTTOM,
+      TooltipWrapper.POSITION_TOP,
+      TooltipWrapper.POSITION_BOTTOM,
     ]),
   };
 
@@ -25,7 +25,7 @@ const Tooltip = (ComposedComponent) => class extends React.Component {
     className: '',
     tooltipDelay: 0,
     tooltipHideOnClick: true,
-    tooltipPosition: POSITION_BOTTOM,
+    tooltipPosition: TooltipWrapper.POSITION_BOTTOM,
   };
 
   state = {
@@ -53,9 +53,9 @@ const Tooltip = (ComposedComponent) => class extends React.Component {
     const yOffset = window.scrollY || window.pageYOffset;
 
     switch (this.props.tooltipPosition) {
-      case POSITION_TOP:
+      case TooltipWrapper.POSITION_TOP:
         return {
-          top: top + yOffset,
+          top: top - height + yOffset,
           left: left + (width / 2) + xOffset,
         };
 
@@ -97,6 +97,7 @@ const Tooltip = (ComposedComponent) => class extends React.Component {
       className,
       tooltip,
       tooltipDelay,  //eslint-disable-line no-unused-vars
+      tooltipPosition, //eslint-disable-line no-unused-vars
       tooltipHideOnClick, //eslint-disable-line no-unused-vars
       ...other,
     } = this.props;
@@ -128,8 +129,5 @@ const Tooltip = (ComposedComponent) => class extends React.Component {
     );
   }
 };
-
-Tooltip.POSITION_TOP = POSITION_TOP;
-Tooltip.POSITION_BOTTOM = POSITION_BOTTOM;
 
 export default Tooltip;
