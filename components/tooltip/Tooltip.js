@@ -2,10 +2,10 @@ import React from 'react';
 import ClassNames from 'classnames';
 import style from './style';
 
-const Tooltip = (ComposedComponent) => class TooltipWrapper extends React.Component {
-  static POSITION_TOP = 'top';
-  static POSITION_BOTTOM = 'bottom';
+const POSITION_TOP = 'top';
+const POSITION_BOTTOM = 'bottom';
 
+const Tooltip = (ComposedComponent) => class extends React.Component {
   static propTypes = {
     children: React.PropTypes.any,
     className: React.PropTypes.string,
@@ -16,8 +16,8 @@ const Tooltip = (ComposedComponent) => class TooltipWrapper extends React.Compon
     tooltipDelay: React.PropTypes.number,
     tooltipHideOnClick: React.PropTypes.bool,
     tooltipPosition: React.PropTypes.oneOf([
-      TooltipWrapper.POSITION_TOP,
-      TooltipWrapper.POSITION_BOTTOM,
+      POSITION_TOP,
+      POSITION_BOTTOM,
     ]),
   };
 
@@ -25,7 +25,7 @@ const Tooltip = (ComposedComponent) => class TooltipWrapper extends React.Compon
     className: '',
     tooltipDelay: 0,
     tooltipHideOnClick: true,
-    tooltipPosition: TooltipWrapper.POSITION_BOTTOM,
+    tooltipPosition: POSITION_BOTTOM,
   };
 
   state = {
@@ -53,7 +53,7 @@ const Tooltip = (ComposedComponent) => class TooltipWrapper extends React.Compon
     const yOffset = window.scrollY || window.pageYOffset;
 
     switch (this.props.tooltipPosition) {
-      case TooltipWrapper.POSITION_TOP:
+      case POSITION_TOP:
         return {
           top: top - height + yOffset,
           left: left + (width / 2) + xOffset,
@@ -129,5 +129,8 @@ const Tooltip = (ComposedComponent) => class TooltipWrapper extends React.Compon
     );
   }
 };
+
+Tooltip.POSITION_TOP = POSITION_TOP;
+Tooltip.POSITION_BOTTOM = POSITION_BOTTOM;
 
 export default Tooltip;
