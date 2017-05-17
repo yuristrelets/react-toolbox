@@ -21,7 +21,9 @@ const Tooltip = (ComposedComponent) => class extends React.Component {
   };
 
   state = {
-    active: false
+    active: false,
+    top: 0,
+    left: 0,
   };
 
   timeout = null;
@@ -37,9 +39,26 @@ const Tooltip = (ComposedComponent) => class extends React.Component {
     }
   }
 
+  calculatePosition(element) {
+    const { top, left, height, width } = element.getBoundingClientRect();
+    const xOffset = window.scrollX || window.pageXOffset;
+    const yOffset = window.scrollY || window.pageYOffset;
+
+    return {
+      top: top + height + yOffset,
+      left: left + (width / 2) + xOffset,
+    };
+  }
+
   handleMouseEnter = (event) => {
+    const { top, left } = this.calculatePosition(event.currentTarget);
+
     this.clearTimeout();
-    this.timeout = setTimeout(() =>this.setState({active: true}), this.props.tooltipDelay);
+
+    this.timeout = setTimeout(() => {
+      this.setState({ active: true, top, left });
+    }, this.props.tooltipDelay);
+
     if (this.props.onMouseEnter) this.props.onMouseEnter(event);
   };
 
@@ -56,10 +75,23 @@ const Tooltip = (ComposedComponent) => class extends React.Component {
   };
 
   render () {
-    const {children, className, tooltip, tooltipDelay, tooltipHideOnClick, ...other} = this.props; //eslint-disable-line no-unused-vars
+    const {
+      children,
+      className,
+      tooltip,
+      tooltipDelay,  //eslint-disable-line no-unused-vars
+      tooltipHideOnClick, //eslint-disable-line no-unused-vars
+      ...other,
+    } = this.props;
+    const {
+      top,
+      left,
+      active,
+    } = this.state;
+
     const composedClassName = ClassNames(style.root, className);
     const tooltipClassName = ClassNames(style.tooltip, {
-      [style.active]: this.state.active
+      [style.active]: active,
     });
 
     return (
@@ -71,7 +103,10 @@ const Tooltip = (ComposedComponent) => class extends React.Component {
         onMouseLeave={this.handleMouseLeave}
       >
         {children ? children : null}
-        <span data-react-toolbox="tooltip" className={tooltipClassName}>{tooltip}</span>
+
+        <span data-react-toolbox="tooltip" className={tooltipClassName} style={{ top, left }}>
+          {tooltip}
+        </span>
       </ComposedComponent>
     );
   }
