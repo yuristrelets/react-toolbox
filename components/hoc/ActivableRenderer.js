@@ -10,20 +10,34 @@ const ActivableRendererFactory = (options = {delay: 500}) => (ActivableComponent
 
     static defaultProps = {
       delay: options.delay
-    }
+    };
 
     state = {
       active: this.props.active,
       rendered: this.props.active
     };
 
+    timeout = null;
+
+    componentWillUnmount() {
+      this.clearTimeout();
+    }
+
     componentWillReceiveProps (nextProps) {
       if (nextProps.active && !this.props.active) this.renderAndActivate();
       if (!nextProps.active && this.props.active) this.deactivateAndUnrender();
     }
 
+    clearTimeout() {
+      if (this.timeout) {
+        clearTimeout(this.timeout);
+        this.timeout = null;
+      }
+    }
+
     renderAndActivate () {
-      if (this.unrenderTimeout) clearTimeout(this.unrenderTimeout);
+      this.clearTimeout();
+
       this.setState({ rendered: true, active: false }, () => {
         setTimeout(() => this.setState({ active: true }), 20);
       });
@@ -31,9 +45,9 @@ const ActivableRendererFactory = (options = {delay: 500}) => (ActivableComponent
 
     deactivateAndUnrender () {
       this.setState({ rendered: true, active: false }, () => {
-        this.unrenderTimeout = setTimeout(() => {
+        this.timeout = setTimeout(() => {
           this.setState({ rendered: false });
-          this.unrenderTimeout = null;
+          this.clearTimeout();
         }, this.props.delay);
       });
     }
