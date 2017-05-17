@@ -2,6 +2,9 @@ import React from 'react';
 import ClassNames from 'classnames';
 import style from './style';
 
+const POSITION_TOP = 'top';
+const POSITION_BOTTOM = 'bottom';
+
 const Tooltip = (ComposedComponent) => class extends React.Component {
   static propTypes = {
     children: React.PropTypes.any,
@@ -11,13 +14,18 @@ const Tooltip = (ComposedComponent) => class extends React.Component {
     onMouseLeave: React.PropTypes.func,
     tooltip: React.PropTypes.node,
     tooltipDelay: React.PropTypes.number,
-    tooltipHideOnClick: React.PropTypes.bool
+    tooltipHideOnClick: React.PropTypes.bool,
+    tooltipPosition: React.PropTypes.oneOf([
+      POSITION_TOP,
+      POSITION_BOTTOM,
+    ]),
   };
 
   static defaultProps = {
     className: '',
     tooltipDelay: 0,
-    tooltipHideOnClick: true
+    tooltipHideOnClick: true,
+    tooltipPosition: POSITION_BOTTOM,
   };
 
   state = {
@@ -44,10 +52,19 @@ const Tooltip = (ComposedComponent) => class extends React.Component {
     const xOffset = window.scrollX || window.pageXOffset;
     const yOffset = window.scrollY || window.pageYOffset;
 
-    return {
-      top: top + height + yOffset,
-      left: left + (width / 2) + xOffset,
-    };
+    switch (this.props.tooltipPosition) {
+      case POSITION_TOP:
+        return {
+          top: top + yOffset,
+          left: left + (width / 2) + xOffset,
+        };
+
+      default: // bottom
+        return {
+          top: top + height + yOffset,
+          left: left + (width / 2) + xOffset,
+        };
+    }
   }
 
   handleMouseEnter = (event) => {
@@ -111,5 +128,8 @@ const Tooltip = (ComposedComponent) => class extends React.Component {
     );
   }
 };
+
+Tooltip.POSITION_TOP = POSITION_TOP;
+Tooltip.POSITION_BOTTOM = POSITION_BOTTOM;
 
 export default Tooltip;
