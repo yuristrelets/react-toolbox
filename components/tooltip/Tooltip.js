@@ -41,12 +41,10 @@ const Tooltip = (ComposedComponent) => class extends React.Component {
 
   calculatePosition(element) {
     const { top, left, height, width } = element.getBoundingClientRect();
-    const xOffset = window.scrollX || window.pageXOffset;
-    const yOffset = window.scrollY || window.pageYOffset;
 
     return {
-      top: top + height + yOffset,
-      left: left + (width / 2) + xOffset,
+      top: top + height,
+      left: left + (width / 2),
     };
   }
 
