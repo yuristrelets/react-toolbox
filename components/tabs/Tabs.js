@@ -2,12 +2,14 @@ import React from 'react';
 import Tab from './Tab';
 import TabContent from './TabContent';
 import IconButton from '../button/IconButton';
+import FontIcon from '../font_icon';
 import style from './style';
 
 class Tabs extends React.Component {
   static propTypes = {
     children: React.PropTypes.node,
     className: React.PropTypes.string,
+    arrowsClassName: React.PropTypes.string,
     disableAnimatedBottomBorder: React.PropTypes.bool,
     addTabButtonTitle: React.PropTypes.string,
     addTabButtonDisabled: React.PropTypes.bool,
@@ -23,19 +25,32 @@ class Tabs extends React.Component {
   };
 
   state = {
-    pointer: {}
+    pointer: {},
+    arrows: {}
   };
 
   componentDidMount () {
-    !this.props.disableAnimatedBottomBorder && this.updatePointer(this.props.index);
+    window.addEventListener('resize', this.handleResize);
+    this.handleResize();
+
+    if (!this.props.disableAnimatedBottomBorder) {
+      this.updatePointer(this.props.index);
+      this.scrollNavigation(this.props.index);
+    }
   }
 
   componentWillReceiveProps (nextProps) {
-    !this.props.disableAnimatedBottomBorder && this.updatePointer(nextProps.index);
+    if (!this.props.disableAnimatedBottomBorder) {
+      this.updatePointer(nextProps.index);
+      this.scrollNavigation(nextProps.index);
+    }
   }
 
   componentWillUnmount () {
+    window.removeEventListener('resize', this.handleResize);
+
     clearTimeout(this.pointerTimeout);
+    clearTimeout(this.resizeTimeout);
   }
 
   handleHeaderClick = (idx) => {
@@ -44,6 +59,27 @@ class Tabs extends React.Component {
 
   handleHeaderRemove = (idx) => {
     if (this.props.onRemoveTab) this.props.onRemoveTab(idx);
+  };
+
+  handleResize = () => {
+    if (this.resizeTimeout) clearTimeout(this.resizeTimeout);
+
+    this.resizeTimeout = setTimeout(() => {
+      this.updatePointer(this.props.index);
+      this.scrollNavigation(this.props.index);
+    }, 100);
+  };
+
+  scrollRight = () =>{
+    this.refs.navigation.scrollLeft += this.refs.navigation.clientWidth;
+    this.updateArrows();
+    this.updatePointer(this.props.index);
+  };
+
+  scrollLeft = () => {
+    this.refs.navigation.scrollLeft -= this.refs.navigation.clientWidth;
+    this.updateArrows();
+    this.updatePointer(this.props.index);
   };
 
   parseChildren () {
@@ -64,15 +100,39 @@ class Tabs extends React.Component {
     return {headers, contents};
   }
 
+  scrollNavigation = (idx) => {
+    const child = this.refs.navigation.children[idx];
+
+    if (!child) {
+      this.refs.navigation.scrollLeft = 0;
+      this.updateArrows();
+      return false;
+    }
+
+    const rect = child.getBoundingClientRect();
+    const navRect = this.refs.navigation.getBoundingClientRect();
+    const navScrollPosition = this.refs.navigation.scrollLeft;
+
+    if (navRect.right < rect.right) {
+      this.refs.navigation.scrollLeft = Math.ceil(rect.right - navRect.right + navScrollPosition);
+    }
+
+    if ((rect.left - navRect.left) < 0) {
+      this.refs.navigation.scrollLeft = Math.round(rect.left - navRect.left + navScrollPosition);
+    }
+
+    this.updateArrows();
+  };
+
   updatePointer (idx) {
     clearTimeout(this.pointerTimeout);
     this.pointerTimeout = setTimeout(() => {
-      const startPoint = this.refs.tabs.getBoundingClientRect().left;
       const child = this.refs.navigation.children[idx];
       const rect = child ? child.getBoundingClientRect() : null;
+      const navRect = this.refs.navigation.getBoundingClientRect();
 
       const width = rect ? rect.width : 0;
-      const left = rect ? rect.left - startPoint : 0;
+      const left = rect ? rect.left - navRect.left + this.refs.navigation.scrollLeft : 0;
 
       this.setState({
         pointer: {
@@ -83,6 +143,20 @@ class Tabs extends React.Component {
       });
     }, 20);
   }
+
+  updateArrows = () => {
+    const idx = this.refs.navigation.children.length - 2;
+    const navRect = this.refs.navigation.getBoundingClientRect();
+    const lastChildRect = this.refs.navigation.children[idx].getBoundingClientRect();
+
+    this.setState({
+      arrows: {
+        left: this.refs.navigation.scrollLeft,
+        right: navRect.right < lastChildRect.right,
+        height: `${navRect.height}px`
+      }
+    });
+  };
 
   renderHeaders (headers) {
     return headers.map((item, idx) => {
@@ -109,10 +183,42 @@ class Tabs extends React.Component {
     }
   }
 
+  renderArrows () {
+    if (!this.state.arrows.left && !this.state.arrows.right) {
+      return null;
+    }
+
+    const styles = {
+      height: this.state.arrows.height || 'auto'
+    };
+
+    return (
+      <div
+        className={`${style.arrowsContainer} ${this.props.arrowsClassName}`}
+        style={styles}
+        ref="arrows"
+      >
+        <FontIcon
+          value="keyboard_arrow_left"
+          className={style.arrowButton}
+          onClick={this.scrollLeft}
+          disabled={!this.state.arrows.left}
+        />
+        <FontIcon
+          value="keyboard_arrow_right"
+          className={style.arrowButton}
+          onClick={this.scrollRight}
+          disabled={!this.state.arrows.right}
+        />
+      </div>
+    );
+  }
+
   render () {
     let className = style.root;
     const { headers, contents } = this.parseChildren();
     if (this.props.className) className += ` ${this.props.className}`;
+    if (this.state.arrows.left || this.state.arrows.right) className += ` ${style.withArrows}`;
 
     return (
       <div ref='tabs' data-react-toolbox='tabs' className={className}>
@@ -128,8 +234,9 @@ class Tabs extends React.Component {
               disabled={this.props.addTabButtonDisabled}
             />
           ) : null}
+          <span className={style.pointer} style={this.state.pointer} />
         </nav>
-        <span className={style.pointer} style={this.state.pointer} />
+        {this.renderArrows()}
         {this.renderContents(contents)}
       </div>
     );
