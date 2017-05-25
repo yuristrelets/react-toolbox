@@ -38,3 +38,4 @@ export Tabs from './tabs/Tabs';
 export Tab from './tabs/Tab';
 export Tooltip from './tooltip';
 export TimePicker from './time_picker';
+export Portal from './hoc/Portal';
