@@ -145,9 +145,12 @@ class Tabs extends React.Component {
   }
 
   updateArrows = () => {
-    const idx = this.refs.navigation.children.length - 2;
+    const lastIdx = this.refs.navigation.children.length - 2;
+
+    if (lastIdx < 0) return null;
+
     const navRect = this.refs.navigation.getBoundingClientRect();
-    const lastChildRect = this.refs.navigation.children[idx].getBoundingClientRect();
+    const lastChildRect = this.refs.navigation.children[lastIdx].getBoundingClientRect();
 
     this.setState({
       arrows: {
