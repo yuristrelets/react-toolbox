@@ -12,7 +12,7 @@ class Portal extends Component {
     lockBody: true
   };
 
-  prevBodyOverflow = '';
+  prevBodyOverflow = document.body.style.overflow;
 
   componentDidMount () {
     this._renderOverlay();
@@ -58,7 +58,6 @@ class Portal extends Component {
 
     if (overlay !== null) {
       if (this.props.lockBody) {
-        this.prevBodyOverflow = document.body.style.overflow;
         document.body.style.overflow = 'hidden';
       }
 
