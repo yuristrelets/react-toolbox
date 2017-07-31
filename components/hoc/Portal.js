@@ -6,11 +6,13 @@ class Portal extends Component {
     children: PropTypes.any,
     container: PropTypes.any,
     lockBody: PropTypes.bool
-  }
+  };
 
   static defaultProps = {
     lockBody: true
-  }
+  };
+
+  prevBodyOverflow = '';
 
   componentDidMount () {
     this._renderOverlay();
@@ -55,7 +57,11 @@ class Portal extends Component {
       : React.Children.only(this.props.children);
 
     if (overlay !== null) {
-      if (this.props.lockBody) document.body.style.overflow = 'hidden';
+      if (this.props.lockBody) {
+        this.prevBodyOverflow = document.body.style.overflow;
+        document.body.style.overflow = 'hidden';
+      }
+
       this._mountOverlayTarget();
       this._overlayInstance = ReactDOM.unstable_renderSubtreeIntoContainer(
         this, overlay, this._overlayTarget
@@ -68,7 +74,10 @@ class Portal extends Component {
 
   _unrenderOverlay () {
     if (this._overlayTarget) {
-      if (this.props.lockBody) document.body.style.overflow = 'scroll';
+      if (this.props.lockBody) {
+        document.body.style.overflow = this.prevBodyOverflow;
+      }
+
       ReactDOM.unmountComponentAtNode(this._overlayTarget);
       this._overlayInstance = null;
     }
