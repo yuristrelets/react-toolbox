@@ -73,7 +73,7 @@
     "phantomjs": "^2.1.7",
     "phantomjs-polyfill": "0.0.2",
     "postcss-loader": "^0.8.2",
-    "react": "^15.0.0",
+    "react": "^15.0.1",
     "react-addons-css-transition-group": "^15.0.1",
     "react-addons-test-utils": "^15.0.1",
     "react-docgen": "^2.8.1",
@@ -112,9 +112,9 @@
   "peerDependencies": {
     "classnames": "^2.2.0",
     "normalize.css": "^4.0.0",
-    "react": "^15.0.0",
-    "react-addons-css-transition-group": "^0.14.0 || ^15.0.1",
-    "react-dom": "^15.0.0",
+    "react": "^15.0.1",
+    "react-addons-css-transition-group": "^15.0.1",
+    "react-dom": "^15.0.1",
     "prop-types": "^15.5.0"
   },
   "typings": "./react-toolbox.d.ts"
