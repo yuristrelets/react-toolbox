@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import Autocomplete from '../autocomplete';
 import Button from '../button';
@@ -26,15 +27,15 @@ const Component = {
 
 class Form extends React.Component {
   static propTypes = {
-    attributes: React.PropTypes.array,
-    children: React.PropTypes.node,
-    className: React.PropTypes.string,
-    model: React.PropTypes.object,
-    onChange: React.PropTypes.func,
-    onError: React.PropTypes.func,
-    onSubmit: React.PropTypes.func,
-    onValid: React.PropTypes.func,
-    storage: React.PropTypes.string
+    attributes: PropTypes.array,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    model: PropTypes.object,
+    onChange: PropTypes.func,
+    onError: PropTypes.func,
+    onSubmit: PropTypes.func,
+    onValid: PropTypes.func,
+    storage: PropTypes.string
   };
 
   static defaultProps = {

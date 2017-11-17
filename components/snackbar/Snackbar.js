@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import ClassNames from 'classnames';
 import ActivableRenderer from '../hoc/ActivableRenderer';
@@ -8,18 +9,18 @@ import style from './style';
 
 class Snackbar extends React.Component {
   static propTypes = {
-    action: React.PropTypes.string,
-    active: React.PropTypes.bool,
-    className: React.PropTypes.string,
-    icon: React.PropTypes.oneOfType([
-      React.PropTypes.string,
-      React.PropTypes.element
+    action: PropTypes.string,
+    active: PropTypes.bool,
+    className: PropTypes.string,
+    icon: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.element
     ]),
-    label: React.PropTypes.string.isRequired,
-    onClick: React.PropTypes.func,
-    onTimeout: React.PropTypes.func,
-    timeout: React.PropTypes.number,
-    type: React.PropTypes.string
+    label: PropTypes.string.isRequired,
+    onClick: PropTypes.func,
+    onTimeout: PropTypes.func,
+    timeout: PropTypes.number,
+    type: PropTypes.string
   };
 
   componentWillReceiveProps (nextProps) {

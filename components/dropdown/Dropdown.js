@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ClassNames from 'classnames';
@@ -7,20 +8,20 @@ import style from './style';
 
 class Dropdown extends React.Component {
   static propTypes = {
-    allowBlank: React.PropTypes.bool,
-    auto: React.PropTypes.bool,
-    className: React.PropTypes.string,
-    disabled: React.PropTypes.bool,
-    error: React.PropTypes.string,
-    label: React.PropTypes.string,
-    onBlur: React.PropTypes.func,
-    onChange: React.PropTypes.func,
-    onFocus: React.PropTypes.func,
-    source: React.PropTypes.array.isRequired,
-    template: React.PropTypes.func,
-    value: React.PropTypes.oneOfType([
-      React.PropTypes.string,
-      React.PropTypes.number
+    allowBlank: PropTypes.bool,
+    auto: PropTypes.bool,
+    className: PropTypes.string,
+    disabled: PropTypes.bool,
+    error: PropTypes.string,
+    label: PropTypes.string,
+    onBlur: PropTypes.func,
+    onChange: PropTypes.func,
+    onFocus: PropTypes.func,
+    source: PropTypes.array.isRequired,
+    template: PropTypes.func,
+    value: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number
     ])
   };
 

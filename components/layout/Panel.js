@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import classnames from 'classnames';
 import style from './style';
@@ -15,9 +16,9 @@ const Panel = ({ children, className, scrollY }) => {
 };
 
 Panel.propTypes = {
-  children: React.PropTypes.any,
-  className: React.PropTypes.string,
-  scrollY: React.PropTypes.bool
+  children: PropTypes.any,
+  className: PropTypes.string,
+  scrollY: PropTypes.bool
 };
 
 Panel.defaultProps = {

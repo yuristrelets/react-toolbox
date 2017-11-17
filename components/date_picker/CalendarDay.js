@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import ClassNames from 'classnames';
 import time from '../utils/time';
@@ -5,11 +6,11 @@ import style from './style.calendar';
 
 class Day extends React.Component {
   static propTypes = {
-    day: React.PropTypes.number,
-    disabled: React.PropTypes.bool,
-    onClick: React.PropTypes.func,
-    selectedDate: React.PropTypes.object,
-    viewDate: React.PropTypes.object
+    day: PropTypes.number,
+    disabled: PropTypes.bool,
+    onClick: PropTypes.func,
+    selectedDate: PropTypes.object,
+    viewDate: PropTypes.object
   };
 
   dayStyle () {

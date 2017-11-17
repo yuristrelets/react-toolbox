@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import classnames from 'classnames';
 import style from './style';
@@ -26,14 +27,14 @@ const NavDrawer = (props) => {
 };
 
 NavDrawer.propTypes = {
-  active: React.PropTypes.bool,
-  children: React.PropTypes.any,
-  className: React.PropTypes.string,
-  onOverlayClick: React.PropTypes.func,
-  permanentAt: React.PropTypes.oneOf(['sm', 'md', 'lg', 'xl', 'xxl', 'xxxl']),
-  pinned: React.PropTypes.bool,
-  scrollY: React.PropTypes.bool,
-  width: React.PropTypes.oneOf(['normal', 'wide'])
+  active: PropTypes.bool,
+  children: PropTypes.any,
+  className: PropTypes.string,
+  onOverlayClick: PropTypes.func,
+  permanentAt: PropTypes.oneOf(['sm', 'md', 'lg', 'xl', 'xxl', 'xxxl']),
+  pinned: PropTypes.bool,
+  scrollY: PropTypes.bool,
+  width: PropTypes.oneOf(['normal', 'wide'])
 };
 
 NavDrawer.defaultProps = {

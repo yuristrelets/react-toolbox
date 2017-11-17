@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import utils from '../utils/utils';
 import style from './style.clock';
@@ -9,11 +10,11 @@ const step = 360 / 60;
 
 class Minutes extends React.Component {
   static propTypes = {
-    center: React.PropTypes.object,
-    onChange: React.PropTypes.func,
-    radius: React.PropTypes.number,
-    selected: React.PropTypes.number,
-    spacing: React.PropTypes.number
+    center: PropTypes.object,
+    onChange: PropTypes.func,
+    radius: PropTypes.number,
+    selected: PropTypes.number,
+    spacing: PropTypes.number
   };
 
   static defaultProps = {

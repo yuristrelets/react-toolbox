@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ClassNames from 'classnames';
 import FontIcon from '../font_icon';
 import Ripple from '../ripple';
@@ -6,21 +7,21 @@ import style from './style';
 
 class IconButton extends React.Component {
   static propTypes = {
-    accent: React.PropTypes.bool,
-    children: React.PropTypes.node,
-    className: React.PropTypes.string,
-    disabled: React.PropTypes.bool,
-    href: React.PropTypes.string,
-    icon: React.PropTypes.oneOfType([
-      React.PropTypes.string,
-      React.PropTypes.element
+    accent: PropTypes.bool,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    disabled: PropTypes.bool,
+    href: PropTypes.string,
+    icon: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.element
     ]),
-    inverse: React.PropTypes.bool,
-    neutral: React.PropTypes.bool,
-    onMouseLeave: React.PropTypes.func,
-    onMouseUp: React.PropTypes.func,
-    primary: React.PropTypes.bool,
-    type: React.PropTypes.string
+    inverse: PropTypes.bool,
+    neutral: PropTypes.bool,
+    onMouseLeave: PropTypes.func,
+    onMouseUp: PropTypes.func,
+    primary: PropTypes.bool,
+    type: PropTypes.string
   };
 
   static defaultProps = {

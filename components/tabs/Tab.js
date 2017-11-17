@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import ClassNames from 'classnames';
 import IconButton from '../button/IconButton';
@@ -5,17 +6,17 @@ import style from './style';
 
 class TabHeader extends React.Component {
   static propTypes = {
-    active: React.PropTypes.bool,
-    activeClassName: React.PropTypes.string,
-    className: React.PropTypes.string,
-    disabled: React.PropTypes.bool,
-    hidden: React.PropTypes.bool,
-    label: React.PropTypes.any.isRequired,
-    onActive: React.PropTypes.func,
-    onClick: React.PropTypes.func,
-    allowRemove: React.PropTypes.bool,
-    removeButtonTitle: React.PropTypes.string,
-    onRemove: React.PropTypes.func
+    active: PropTypes.bool,
+    activeClassName: PropTypes.string,
+    className: PropTypes.string,
+    disabled: PropTypes.bool,
+    hidden: PropTypes.bool,
+    label: PropTypes.any.isRequired,
+    onActive: PropTypes.func,
+    onClick: PropTypes.func,
+    allowRemove: PropTypes.bool,
+    removeButtonTitle: PropTypes.string,
+    onRemove: PropTypes.func
   };
 
   static defaultProps = {

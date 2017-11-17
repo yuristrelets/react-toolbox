@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import ClassNames from 'classnames';
 import ActivableRenderer from '../hoc/ActivableRenderer';
@@ -21,11 +22,11 @@ const Drawer = (props) => {
 };
 
 Drawer.propTypes = {
-  active: React.PropTypes.bool,
-  children: React.PropTypes.node,
-  className: React.PropTypes.string,
-  onOverlayClick: React.PropTypes.func,
-  type: React.PropTypes.oneOf(['left', 'right'])
+  active: PropTypes.bool,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  onOverlayClick: PropTypes.func,
+  type: PropTypes.oneOf(['left', 'right'])
 };
 
 Drawer.defaultProps = {

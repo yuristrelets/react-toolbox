@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import ClassNames from 'classnames';
 import Check from './Check';
@@ -5,11 +6,11 @@ import style from './style';
 
 class Checkbox extends React.Component {
   static propTypes = {
-    checked: React.PropTypes.bool,
-    className: React.PropTypes.string,
-    disabled: React.PropTypes.bool,
-    label: React.PropTypes.any,
-    onChange: React.PropTypes.func
+    checked: PropTypes.bool,
+    className: PropTypes.string,
+    disabled: PropTypes.bool,
+    label: PropTypes.any,
+    onChange: PropTypes.func
   };
 
   static defaultProps = {

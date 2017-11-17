@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import style from './style';
 import ListItemAction from './ListItemAction';
@@ -15,8 +16,8 @@ const ListItemActions = ({type, children}) => {
 };
 
 ListItemActions.propTypes = {
-  children: React.PropTypes.any,
-  type: React.PropTypes.oneOf(['left', 'right'])
+  children: PropTypes.any,
+  type: PropTypes.oneOf(['left', 'right'])
 };
 
 export default ListItemActions;

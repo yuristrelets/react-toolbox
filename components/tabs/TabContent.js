@@ -1,12 +1,13 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import style from './style';
 
 class TabContent extends React.Component {
   static propTypes = {
-    active: React.PropTypes.bool,
-    children: React.PropTypes.node,
-    className: React.PropTypes.string,
-    tabIndex: React.PropTypes.number
+    active: PropTypes.bool,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    tabIndex: PropTypes.number
   };
 
   static defaultProps = {

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import style from './style';
 
@@ -7,7 +8,7 @@ const ListDivider = ({inset}) => {
 };
 
 ListDivider.propTypes = {
-  inset: React.PropTypes.bool
+  inset: PropTypes.bool
 };
 
 ListDivider.defaultProps = {

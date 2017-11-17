@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import classnames from 'classnames';
 import events from '../utils/events';
@@ -8,13 +9,13 @@ import TimePickerDialog from './TimePickerDialog';
 
 class TimePicker extends React.Component {
   static propTypes = {
-    className: React.PropTypes.string,
-    error: React.PropTypes.string,
-    format: React.PropTypes.oneOf(['24hr', 'ampm']),
-    inputClassName: React.PropTypes.string,
-    label: React.PropTypes.string,
-    onChange: React.PropTypes.func,
-    value: React.PropTypes.object
+    className: PropTypes.string,
+    error: PropTypes.string,
+    format: PropTypes.oneOf(['24hr', 'ampm']),
+    inputClassName: PropTypes.string,
+    label: PropTypes.string,
+    onChange: PropTypes.func,
+    value: PropTypes.object
   };
 
   static defaultProps = {

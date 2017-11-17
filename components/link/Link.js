@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import ClassNames from 'classnames';
 import style from './style';
@@ -19,15 +20,15 @@ const Link = ({children, ...props}) => {
 };
 
 Link.propTypes = {
-  active: React.PropTypes.bool,
-  children: React.PropTypes.node,
-  className: React.PropTypes.string,
-  count: React.PropTypes.number,
-  icon: React.PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.element
+  active: PropTypes.bool,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  count: PropTypes.number,
+  icon: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element
   ]),
-  label: React.PropTypes.string
+  label: PropTypes.string
 };
 
 Link.defaultProps = {

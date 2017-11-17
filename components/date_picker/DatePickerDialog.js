@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import ClassNames from 'classnames';
 import Calendar from './Calendar';
@@ -7,14 +8,14 @@ import time from '../utils/time';
 
 class CalendarDialog extends React.Component {
   static propTypes = {
-    active: React.PropTypes.bool,
-    autoOk: React.PropTypes.bool,
-    className: React.PropTypes.string,
-    maxDate: React.PropTypes.object,
-    minDate: React.PropTypes.object,
-    onDismiss: React.PropTypes.func,
-    onSelect: React.PropTypes.func,
-    value: React.PropTypes.object
+    active: PropTypes.bool,
+    autoOk: PropTypes.bool,
+    className: PropTypes.string,
+    maxDate: PropTypes.object,
+    minDate: PropTypes.object,
+    onDismiss: PropTypes.func,
+    onSelect: PropTypes.func,
+    value: PropTypes.object
   };
 
   static defaultProps = {

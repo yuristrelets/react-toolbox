@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import CssTransitionGroup from 'react-addons-css-transition-group';
 import { SlideLeft, SlideRight } from '../animations';
@@ -9,12 +10,12 @@ import style from './style.calendar';
 
 class Calendar extends React.Component {
   static propTypes = {
-    display: React.PropTypes.oneOf(['months', 'years']),
-    maxDate: React.PropTypes.object,
-    minDate: React.PropTypes.object,
-    onChange: React.PropTypes.func,
-    selectedDate: React.PropTypes.object,
-    viewDate: React.PropTypes.object
+    display: PropTypes.oneOf(['months', 'years']),
+    maxDate: PropTypes.object,
+    minDate: PropTypes.object,
+    onChange: PropTypes.func,
+    selectedDate: PropTypes.object,
+    viewDate: PropTypes.object
   };
 
   static defaultProps = {

@@ -1,14 +1,15 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import RadioButton from './RadioButton';
 
 class RadioGroup extends React.Component {
   static propTypes = {
-    children: React.PropTypes.node,
-    className: React.PropTypes.string,
-    disabled: React.PropTypes.bool,
-    name: React.PropTypes.string,
-    onChange: React.PropTypes.func,
-    value: React.PropTypes.any
+    children: PropTypes.node,
+    className: PropTypes.string,
+    disabled: PropTypes.bool,
+    name: PropTypes.string,
+    onChange: PropTypes.func,
+    value: PropTypes.any
   };
 
   static defaultProps = {

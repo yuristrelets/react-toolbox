@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import utils from '../utils/utils';
 import Face from './ClockFace';
@@ -10,13 +11,13 @@ const step = 360 / 12;
 
 class Hours extends React.Component {
   static propTypes = {
-    center: React.PropTypes.object,
-    format: React.PropTypes.oneOf(['24hr', 'ampm']),
-    onChange: React.PropTypes.func,
-    onHandMoved: React.PropTypes.func,
-    radius: React.PropTypes.number,
-    selected: React.PropTypes.number,
-    spacing: React.PropTypes.number
+    center: PropTypes.object,
+    format: PropTypes.oneOf(['24hr', 'ampm']),
+    onChange: PropTypes.func,
+    onHandMoved: PropTypes.func,
+    radius: PropTypes.number,
+    selected: PropTypes.number,
+    spacing: PropTypes.number
   };
 
   state = {

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import Portal from '../hoc/Portal';
 import ClassNames from 'classnames';
@@ -5,12 +6,12 @@ import style from './style';
 
 class Overlay extends React.Component {
   static propTypes = {
-    active: React.PropTypes.bool,
-    children: React.PropTypes.node,
-    className: React.PropTypes.string,
-    invisible: React.PropTypes.bool,
-    onClick: React.PropTypes.func,
-    onEscKeyDown: React.PropTypes.func
+    active: PropTypes.bool,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    invisible: PropTypes.bool,
+    onClick: PropTypes.func,
+    onEscKeyDown: PropTypes.func
   };
 
   static defaultProps = {

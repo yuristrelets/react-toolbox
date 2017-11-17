@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import ListItemContent from './ListItemContent';
 import ListItemLayout from './ListItemLayout';
@@ -6,12 +7,12 @@ import style from './style';
 
 class ListItem extends React.Component {
   static propTypes = {
-    children: React.PropTypes.any,
-    className: React.PropTypes.string,
-    disabled: React.PropTypes.bool,
-    onClick: React.PropTypes.func,
-    ripple: React.PropTypes.bool,
-    to: React.PropTypes.string
+    children: PropTypes.any,
+    className: PropTypes.string,
+    disabled: PropTypes.bool,
+    onClick: PropTypes.func,
+    ripple: PropTypes.bool,
+    to: PropTypes.string
   };
 
   static defaultProps = {

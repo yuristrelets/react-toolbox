@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import ClassNames from 'classnames';
 import Checkbox from '../checkbox';
@@ -6,13 +7,13 @@ import style from './style';
 
 class TableRow extends React.Component {
   static propTypes = {
-    data: React.PropTypes.object,
-    index: React.PropTypes.number,
-    model: React.PropTypes.object,
-    onChange: React.PropTypes.func,
-    onSelect: React.PropTypes.func,
-    selectable: React.PropTypes.bool,
-    selected: React.PropTypes.bool
+    data: PropTypes.object,
+    index: PropTypes.number,
+    model: PropTypes.object,
+    onChange: PropTypes.func,
+    onSelect: PropTypes.func,
+    selectable: PropTypes.bool,
+    selected: PropTypes.bool
   };
 
   handleInputChange = (index, key, type, event) => {

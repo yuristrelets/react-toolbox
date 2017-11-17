@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import style from './style.clock';
 import events from '../utils/events';
@@ -6,13 +7,13 @@ import utils from '../utils/utils';
 
 class Hand extends React.Component {
   static propTypes = {
-    angle: React.PropTypes.number,
-    className: React.PropTypes.string,
-    length: React.PropTypes.number,
-    onMove: React.PropTypes.func,
-    onMoved: React.PropTypes.func,
-    origin: React.PropTypes.object,
-    step: React.PropTypes.number
+    angle: PropTypes.number,
+    className: PropTypes.string,
+    length: PropTypes.number,
+    onMove: PropTypes.func,
+    onMoved: PropTypes.func,
+    origin: PropTypes.object,
+    step: PropTypes.number
   };
 
   static defaultProps = {

@@ -1,13 +1,14 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import style from './style.clock';
 
 class Face extends React.Component {
   static propTypes = {
-    active: React.PropTypes.number,
-    numbers: React.PropTypes.array,
-    radius: React.PropTypes.number,
-    spacing: React.PropTypes.number,
-    twoDigits: React.PropTypes.bool
+    active: PropTypes.number,
+    numbers: PropTypes.array,
+    radius: PropTypes.number,
+    spacing: PropTypes.number,
+    twoDigits: PropTypes.bool
   };
 
   static defaultProps = {

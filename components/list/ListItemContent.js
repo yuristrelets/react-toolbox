@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import style from './style';
 import classnames from 'classnames';
@@ -7,10 +8,10 @@ const types = ['auto', 'normal', 'large'];
 
 class ListItemContent extends React.Component {
   static propTypes = {
-    caption: React.PropTypes.string,
-    children: React.PropTypes.any,
-    legend: React.PropTypes.string,
-    type: React.PropTypes.oneOf(types)
+    caption: PropTypes.string,
+    children: PropTypes.any,
+    legend: PropTypes.string,
+    type: PropTypes.oneOf(types)
   };
 
   getType () {

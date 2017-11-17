@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import style from './style';
 import Button from '../button';
@@ -25,11 +26,11 @@ const Navigation = props => {
 };
 
 Navigation.propTypes = {
-  actions: React.PropTypes.array,
-  children: React.PropTypes.node,
-  className: React.PropTypes.string,
-  routes: React.PropTypes.array,
-  type: React.PropTypes.oneOf(['vertical', 'horizontal'])
+  actions: PropTypes.array,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  routes: PropTypes.array,
+  type: PropTypes.oneOf(['vertical', 'horizontal'])
 };
 
 Navigation.defaultProps = {

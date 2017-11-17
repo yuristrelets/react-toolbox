@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import FontIcon from '../font_icon';
 import ClassNames from 'classnames';
@@ -6,17 +7,17 @@ import style from './style.menu_item';
 
 class MenuItem extends React.Component {
   static propTypes = {
-    caption: React.PropTypes.string.isRequired,
-    children: React.PropTypes.any,
-    className: React.PropTypes.string,
-    disabled: React.PropTypes.bool,
-    icon: React.PropTypes.oneOfType([
-      React.PropTypes.string,
-      React.PropTypes.element
+    caption: PropTypes.string.isRequired,
+    children: PropTypes.any,
+    className: PropTypes.string,
+    disabled: PropTypes.bool,
+    icon: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.element
     ]),
-    onClick: React.PropTypes.func,
-    selected: React.PropTypes.bool,
-    shortcut: React.PropTypes.string
+    onClick: PropTypes.func,
+    selected: PropTypes.bool,
+    shortcut: PropTypes.string
   };
 
   static defaultProps = {

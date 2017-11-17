@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ClassNames from 'classnames';
@@ -21,12 +22,12 @@ const Ripple = (options = {}) => {
   return ComposedComponent => {
     return class RippledComponent extends React.Component {
       static propTypes = {
-        children: React.PropTypes.any,
-        disabled: React.PropTypes.bool,
-        ripple: React.PropTypes.bool,
-        rippleCentered: React.PropTypes.bool,
-        rippleClassName: React.PropTypes.string,
-        rippleSpread: React.PropTypes.number
+        children: PropTypes.any,
+        disabled: PropTypes.bool,
+        ripple: PropTypes.bool,
+        rippleCentered: PropTypes.bool,
+        rippleClassName: PropTypes.string,
+        rippleSpread: PropTypes.number
       };
 
       static defaultProps = {

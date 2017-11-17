@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import ClassNames from 'classnames';
 import style from './style';
@@ -13,9 +14,9 @@ const ListItemText = ({className, primary, children, ...other}) => {
 };
 
 ListItemText.propTypes = {
-  children: React.PropTypes.any,
-  className: React.PropTypes.string,
-  primary: React.PropTypes.bool
+  children: PropTypes.any,
+  className: PropTypes.string,
+  primary: PropTypes.bool
 };
 
 ListItemText.defaultProps = {

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import Checkbox from '../checkbox';
 import style from './style';
@@ -25,11 +26,11 @@ const TableHead = ({model, onSelect, selectable, selected}) => {
 };
 
 TableHead.propTypes = {
-  className: React.PropTypes.string,
-  model: React.PropTypes.object,
-  onSelect: React.PropTypes.func,
-  selectable: React.PropTypes.bool,
-  selected: React.PropTypes.bool
+  className: PropTypes.string,
+  model: PropTypes.object,
+  onSelect: PropTypes.func,
+  selectable: PropTypes.bool,
+  selected: PropTypes.bool
 };
 
 TableHead.defaultProps = {

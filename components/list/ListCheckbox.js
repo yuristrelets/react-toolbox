@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import ClassNames from 'classnames';
 import Checkbox from '../checkbox';
@@ -27,15 +28,15 @@ const ListCheckbox = (props) => {
 };
 
 ListCheckbox.propTypes = {
-  caption: React.PropTypes.string.isRequired,
-  checked: React.PropTypes.bool,
-  className: React.PropTypes.string,
-  disabled: React.PropTypes.bool,
-  legend: React.PropTypes.string,
-  name: React.PropTypes.string,
-  onBlur: React.PropTypes.func,
-  onChange: React.PropTypes.func,
-  onFocus: React.PropTypes.func
+  caption: PropTypes.string.isRequired,
+  checked: PropTypes.bool,
+  className: PropTypes.string,
+  disabled: PropTypes.bool,
+  legend: PropTypes.string,
+  name: PropTypes.string,
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func,
+  onFocus: PropTypes.func
 };
 
 ListCheckbox.defaultProps = {

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import ClassNames from 'classnames';
 import style from './style';
@@ -5,14 +6,14 @@ import prefixer from '../utils/prefixer';
 
 class ProgressBar extends React.Component {
   static propTypes = {
-    buffer: React.PropTypes.number,
-    className: React.PropTypes.string,
-    max: React.PropTypes.number,
-    min: React.PropTypes.number,
-    mode: React.PropTypes.string,
-    multicolor: React.PropTypes.bool,
-    type: React.PropTypes.oneOf(['linear', 'circular']),
-    value: React.PropTypes.number
+    buffer: PropTypes.number,
+    className: PropTypes.string,
+    max: PropTypes.number,
+    min: PropTypes.number,
+    mode: PropTypes.string,
+    multicolor: PropTypes.bool,
+    type: PropTypes.oneOf(['linear', 'circular']),
+    value: PropTypes.number
   };
 
   static defaultProps = {

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { IconButton } from '../button';
 import Menu from './Menu';
@@ -5,21 +6,21 @@ import style from './style.icon_menu';
 
 class IconMenu extends React.Component {
   static propTypes = {
-    children: React.PropTypes.node,
-    className: React.PropTypes.string,
-    icon: React.PropTypes.oneOfType([
-      React.PropTypes.string,
-      React.PropTypes.element
+    children: PropTypes.node,
+    className: PropTypes.string,
+    icon: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.element
     ]),
-    iconRipple: React.PropTypes.bool,
-    menuRipple: React.PropTypes.bool,
-    onClick: React.PropTypes.func,
-    onHide: React.PropTypes.func,
-    onSelect: React.PropTypes.func,
-    onShow: React.PropTypes.func,
-    position: React.PropTypes.string,
-    selectable: React.PropTypes.bool,
-    selected: React.PropTypes.any
+    iconRipple: PropTypes.bool,
+    menuRipple: PropTypes.bool,
+    onClick: PropTypes.func,
+    onHide: PropTypes.func,
+    onSelect: PropTypes.func,
+    onShow: PropTypes.func,
+    position: PropTypes.string,
+    selectable: PropTypes.bool,
+    selected: PropTypes.any
   };
 
   static defaultProps = {

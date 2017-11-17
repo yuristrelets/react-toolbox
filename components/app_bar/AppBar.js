@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ClassNames from 'classnames';
 import style from './style';
 
@@ -16,10 +17,10 @@ const AppBar = (props) => {
 };
 
 AppBar.propTypes = {
-  children: React.PropTypes.node,
-  className: React.PropTypes.string,
-  fixed: React.PropTypes.bool,
-  flat: React.PropTypes.bool
+  children: PropTypes.node,
+  className: PropTypes.string,
+  fixed: PropTypes.bool,
+  flat: PropTypes.bool
 };
 
 AppBar.defaultProps = {

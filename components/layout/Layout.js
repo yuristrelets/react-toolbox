@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import classnames from 'classnames';
 import style from './style';
@@ -44,7 +45,7 @@ Layout.propTypes = {
       );
     }
   },
-  className: React.PropTypes.string
+  className: PropTypes.string
 };
 
 Layout.defaultProps = {

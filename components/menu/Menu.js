@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ClassNames from 'classnames';
@@ -16,17 +17,17 @@ const POSITION = {
 
 class Menu extends React.Component {
   static propTypes = {
-    active: React.PropTypes.bool,
-    children: React.PropTypes.node,
-    className: React.PropTypes.string,
-    onHide: React.PropTypes.func,
-    onSelect: React.PropTypes.func,
-    onShow: React.PropTypes.func,
-    outline: React.PropTypes.bool,
-    position: React.PropTypes.string,
-    ripple: React.PropTypes.bool,
-    selectable: React.PropTypes.bool,
-    selected: React.PropTypes.any
+    active: PropTypes.bool,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    onHide: PropTypes.func,
+    onSelect: PropTypes.func,
+    onShow: PropTypes.func,
+    outline: PropTypes.bool,
+    position: PropTypes.string,
+    ripple: PropTypes.bool,
+    selectable: PropTypes.bool,
+    selected: PropTypes.any
   };
 
   static defaultProps = {

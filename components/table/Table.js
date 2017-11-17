@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import TableHead from './TableHead';
 import TableRow from './TableRow';
@@ -5,14 +6,14 @@ import style from './style';
 
 class Table extends React.Component {
   static propTypes = {
-    className: React.PropTypes.string,
-    heading: React.PropTypes.bool,
-    model: React.PropTypes.object,
-    onChange: React.PropTypes.func,
-    onSelect: React.PropTypes.func,
-    selectable: React.PropTypes.bool,
-    selected: React.PropTypes.array,
-    source: React.PropTypes.array
+    className: PropTypes.string,
+    heading: PropTypes.bool,
+    model: PropTypes.object,
+    onChange: PropTypes.func,
+    onSelect: PropTypes.func,
+    selectable: PropTypes.bool,
+    selected: PropTypes.array,
+    source: PropTypes.array
   };
 
   static defaultProps = {

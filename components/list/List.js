@@ -1,13 +1,14 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import ListItem from './ListItem';
 import style from './style';
 
 class List extends React.Component {
   static propTypes = {
-    children: React.PropTypes.node,
-    className: React.PropTypes.string,
-    ripple: React.PropTypes.bool,
-    selectable: React.PropTypes.bool
+    children: PropTypes.node,
+    className: PropTypes.string,
+    ripple: PropTypes.bool,
+    selectable: PropTypes.bool
   };
 
   static defaultProps = {

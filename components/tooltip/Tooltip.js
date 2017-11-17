@@ -1,17 +1,18 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import ClassNames from 'classnames';
 import style from './style';
 
 const Tooltip = (ComposedComponent) => class extends React.Component {
   static propTypes = {
-    children: React.PropTypes.any,
-    className: React.PropTypes.string,
-    onClick: React.PropTypes.func,
-    onMouseEnter: React.PropTypes.func,
-    onMouseLeave: React.PropTypes.func,
-    tooltip: React.PropTypes.node,
-    tooltipDelay: React.PropTypes.number,
-    tooltipHideOnClick: React.PropTypes.bool,
+    children: PropTypes.any,
+    className: PropTypes.string,
+    onClick: PropTypes.func,
+    onMouseEnter: PropTypes.func,
+    onMouseLeave: PropTypes.func,
+    tooltip: PropTypes.node,
+    tooltipDelay: PropTypes.number,
+    tooltipHideOnClick: PropTypes.bool,
   };
 
   static defaultProps = {

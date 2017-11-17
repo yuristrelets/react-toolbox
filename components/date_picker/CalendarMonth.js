@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import CalendarDay from './CalendarDay';
 import time from '../utils/time';
@@ -6,11 +7,11 @@ import style from './style.calendar';
 
 class Month extends React.Component {
   static propTypes = {
-    maxDate: React.PropTypes.object,
-    minDate: React.PropTypes.object,
-    onDayClick: React.PropTypes.func,
-    selectedDate: React.PropTypes.object,
-    viewDate: React.PropTypes.object
+    maxDate: PropTypes.object,
+    minDate: PropTypes.object,
+    onDayClick: PropTypes.func,
+    selectedDate: PropTypes.object,
+    viewDate: PropTypes.object
   };
 
   handleDayClick = (day) => {

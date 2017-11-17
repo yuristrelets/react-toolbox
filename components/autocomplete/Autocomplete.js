@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import ClassNames from 'classnames';
 import Input from '../input';
@@ -14,16 +15,16 @@ const POSITION = {
 
 class Autocomplete extends React.Component {
  static propTypes = {
-   className: React.PropTypes.string,
-   direction: React.PropTypes.oneOf(['auto', 'up', 'down']),
-   disabled: React.PropTypes.bool,
-   error: React.PropTypes.string,
-   label: React.PropTypes.string,
-   multiple: React.PropTypes.bool,
-   onChange: React.PropTypes.func,
-   selectedPosition: React.PropTypes.oneOf(['above', 'below']),
-   source: React.PropTypes.any,
-   value: React.PropTypes.any
+   className: PropTypes.string,
+   direction: PropTypes.oneOf(['auto', 'up', 'down']),
+   disabled: PropTypes.bool,
+   error: PropTypes.string,
+   label: PropTypes.string,
+   multiple: PropTypes.bool,
+   onChange: PropTypes.func,
+   selectedPosition: PropTypes.oneOf(['above', 'below']),
+   source: PropTypes.any,
+   value: PropTypes.any
  };
 
  static defaultProps = {

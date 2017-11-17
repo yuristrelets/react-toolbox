@@ -1,17 +1,18 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import Thumb from './Thumb';
 import style from './style';
 
 class Switch extends React.Component {
   static propTypes = {
-    checked: React.PropTypes.bool,
-    className: React.PropTypes.string,
-    disabled: React.PropTypes.bool,
-    label: React.PropTypes.string,
-    name: React.PropTypes.string,
-    onBlur: React.PropTypes.func,
-    onChange: React.PropTypes.func,
-    onFocus: React.PropTypes.func
+    checked: PropTypes.bool,
+    className: PropTypes.string,
+    disabled: PropTypes.bool,
+    label: PropTypes.string,
+    name: PropTypes.string,
+    onBlur: PropTypes.func,
+    onChange: PropTypes.func,
+    onFocus: PropTypes.func
   };
 
   static defaultProps = {

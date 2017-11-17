@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import ClassNames from 'classnames';
 import ActivableRenderer from '../hoc/ActivableRenderer';
@@ -41,17 +42,17 @@ const Dialog = (props) => {
 };
 
 Dialog.propTypes = {
-  actions: React.PropTypes.array,
-  active: React.PropTypes.bool,
-  children: React.PropTypes.node,
-  className: React.PropTypes.string,
-  onEscKeyDown: React.PropTypes.func,
-  onOverlayClick: React.PropTypes.func,
-  onOverlayMouseDown: React.PropTypes.func,
-  onOverlayMouseMove: React.PropTypes.func,
-  onOverlayMouseUp: React.PropTypes.func,
-  title: React.PropTypes.string,
-  type: React.PropTypes.string
+  actions: PropTypes.array,
+  active: PropTypes.bool,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  onEscKeyDown: PropTypes.func,
+  onOverlayClick: PropTypes.func,
+  onOverlayMouseDown: PropTypes.func,
+  onOverlayMouseMove: PropTypes.func,
+  onOverlayMouseUp: PropTypes.func,
+  title: PropTypes.string,
+  type: PropTypes.string
 };
 
 Dialog.defaultProps = {

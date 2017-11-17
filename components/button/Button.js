@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ClassNames from 'classnames';
 import FontIcon from '../font_icon';
 import Ripple from '../ripple';
@@ -6,26 +7,26 @@ import style from './style';
 
 class Button extends React.Component {
   static propTypes = {
-    accent: React.PropTypes.bool,
-    children: React.PropTypes.node,
-    className: React.PropTypes.string,
-    disabled: React.PropTypes.bool,
-    flat: React.PropTypes.bool,
-    floating: React.PropTypes.bool,
-    href: React.PropTypes.string,
-    icon: React.PropTypes.oneOfType([
-      React.PropTypes.string,
-      React.PropTypes.element
+    accent: PropTypes.bool,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    disabled: PropTypes.bool,
+    flat: PropTypes.bool,
+    floating: PropTypes.bool,
+    href: PropTypes.string,
+    icon: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.element
     ]),
-    inverse: React.PropTypes.bool,
-    label: React.PropTypes.string,
-    mini: React.PropTypes.bool,
-    neutral: React.PropTypes.bool,
-    onMouseLeave: React.PropTypes.func,
-    onMouseUp: React.PropTypes.func,
-    primary: React.PropTypes.bool,
-    raised: React.PropTypes.bool,
-    type: React.PropTypes.string
+    inverse: PropTypes.bool,
+    label: PropTypes.string,
+    mini: PropTypes.bool,
+    neutral: PropTypes.bool,
+    onMouseLeave: PropTypes.func,
+    onMouseUp: PropTypes.func,
+    primary: PropTypes.bool,
+    raised: PropTypes.bool,
+    type: PropTypes.string
   };
 
   static defaultProps = {

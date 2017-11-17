@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import ClassNames from 'classnames';
 import style from './style';
@@ -7,12 +8,12 @@ import Dialog from '../dialog';
 
 class TimePickerDialog extends React.Component {
   static propTypes = {
-    active: React.PropTypes.bool,
-    className: React.PropTypes.string,
-    format: React.PropTypes.oneOf(['24hr', 'ampm']),
-    onDismiss: React.PropTypes.func,
-    onSelect: React.PropTypes.func,
-    value: React.PropTypes.object
+    active: PropTypes.bool,
+    className: PropTypes.string,
+    format: PropTypes.oneOf(['24hr', 'ampm']),
+    onDismiss: PropTypes.func,
+    onSelect: PropTypes.func,
+    value: PropTypes.object
   };
 
   static defaultProps = {

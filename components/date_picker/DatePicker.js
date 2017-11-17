@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import classnames from 'classnames';
 import DatePickerDialog from './DatePickerDialog';
@@ -8,16 +9,16 @@ import time from '../utils/time';
 
 class DatePicker extends React.Component {
   static propTypes = {
-    autoOk: React.PropTypes.bool,
-    className: React.PropTypes.string,
-    error: React.PropTypes.string,
-    inputClassName: React.PropTypes.string,
-    inputFormat: React.PropTypes.func,
-    label: React.PropTypes.string,
-    maxDate: React.PropTypes.object,
-    minDate: React.PropTypes.object,
-    onChange: React.PropTypes.func,
-    value: React.PropTypes.object
+    autoOk: PropTypes.bool,
+    className: PropTypes.string,
+    error: PropTypes.string,
+    inputClassName: PropTypes.string,
+    inputFormat: PropTypes.func,
+    label: PropTypes.string,
+    maxDate: PropTypes.object,
+    minDate: PropTypes.object,
+    onChange: PropTypes.func,
+    value: PropTypes.object
   };
 
   state = {

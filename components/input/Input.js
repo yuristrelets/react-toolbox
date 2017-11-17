@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import ClassNames from 'classnames';
 import FontIcon from '../font_icon';
@@ -5,26 +6,26 @@ import style from './style';
 
 class Input extends React.Component {
   static propTypes = {
-    children: React.PropTypes.any,
-    className: React.PropTypes.string,
-    disabled: React.PropTypes.bool,
-    error: React.PropTypes.string,
-    floating: React.PropTypes.bool,
-    hint: React.PropTypes.string,
-    icon: React.PropTypes.oneOfType([
-      React.PropTypes.string,
-      React.PropTypes.element
+    children: PropTypes.any,
+    className: PropTypes.string,
+    disabled: PropTypes.bool,
+    error: PropTypes.string,
+    floating: PropTypes.bool,
+    hint: PropTypes.string,
+    icon: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.element
     ]),
-    label: React.PropTypes.string,
-    maxLength: React.PropTypes.number,
-    multiline: React.PropTypes.bool,
-    onBlur: React.PropTypes.func,
-    onChange: React.PropTypes.func,
-    onFocus: React.PropTypes.func,
-    onKeyPress: React.PropTypes.func,
-    required: React.PropTypes.bool,
-    type: React.PropTypes.string,
-    value: React.PropTypes.any
+    label: PropTypes.string,
+    maxLength: PropTypes.number,
+    multiline: PropTypes.bool,
+    onBlur: PropTypes.func,
+    onChange: PropTypes.func,
+    onFocus: PropTypes.func,
+    onKeyPress: PropTypes.func,
+    required: PropTypes.bool,
+    type: PropTypes.string,
+    value: PropTypes.any
   };
 
   static defaultProps = {

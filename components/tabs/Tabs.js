@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import Tab from './Tab';
 import TabContent from './TabContent';
@@ -7,16 +8,16 @@ import style from './style';
 
 class Tabs extends React.Component {
   static propTypes = {
-    children: React.PropTypes.node,
-    className: React.PropTypes.string,
-    arrowsClassName: React.PropTypes.string,
-    disableAnimatedBottomBorder: React.PropTypes.bool,
-    addTabButtonTitle: React.PropTypes.string,
-    addTabButtonDisabled: React.PropTypes.bool,
-    index: React.PropTypes.number,
-    onChange: React.PropTypes.func,
-    onAddTab: React.PropTypes.func,
-    onRemoveTab: React.PropTypes.func
+    children: PropTypes.node,
+    className: PropTypes.string,
+    arrowsClassName: PropTypes.string,
+    disableAnimatedBottomBorder: PropTypes.bool,
+    addTabButtonTitle: PropTypes.string,
+    addTabButtonDisabled: PropTypes.bool,
+    index: PropTypes.number,
+    onChange: PropTypes.func,
+    onAddTab: PropTypes.func,
+    onRemoveTab: PropTypes.func
   };
 
   static defaultProps = {

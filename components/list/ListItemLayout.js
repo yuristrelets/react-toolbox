@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import ClassNames from 'classnames';
 import FontIcon from '../font_icon';
@@ -34,28 +35,28 @@ const ListItemLayout = (props) => {
 };
 
 ListItemLayout.propTypes = {
-  avatar: React.PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.element
+  avatar: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element
   ]),
-  caption: React.PropTypes.string,
-  children: React.PropTypes.any,
-  className: React.PropTypes.string,
-  disabled: React.PropTypes.bool,
-  itemContent: React.PropTypes.element,
-  leftActions: React.PropTypes.array,
-  leftIcon: React.PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.element
+  caption: PropTypes.string,
+  children: PropTypes.any,
+  className: PropTypes.string,
+  disabled: PropTypes.bool,
+  itemContent: PropTypes.element,
+  leftActions: PropTypes.array,
+  leftIcon: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element
   ]),
-  legend: React.PropTypes.string,
-  rightActions: React.PropTypes.array,
-  rightIcon: React.PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.element
+  legend: PropTypes.string,
+  rightActions: PropTypes.array,
+  rightIcon: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element
   ]),
-  selectable: React.PropTypes.bool,
-  to: React.PropTypes.string
+  selectable: PropTypes.bool,
+  to: PropTypes.string
 };
 
 ListItemLayout.defaultProps = {
