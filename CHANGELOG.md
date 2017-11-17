@@ -2,7 +2,7 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [1.0.0] - 2017-11-17
+## [18.0.0] - 2017-11-17
 - Remove theme building directive for support node-sass greater than 3.4.2
 
 ## [0.15.0] - 2016-03-24
