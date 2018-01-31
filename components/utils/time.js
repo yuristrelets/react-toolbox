@@ -153,24 +153,29 @@ const time = {
   },
 
   formatTime (date, format) {
-    let hours = date.getHours();
-    let mins = date.getMinutes().toString();
+    if (date instanceof Date) {
+      let hours = date.getHours();
+      let mins = date.getMinutes().toString();
 
-    if (format === 'ampm') {
-      const isAM = hours < 12;
-      const additional = isAM ? ' am' : ' pm';
+      if (format === 'ampm') {
+        const isAM = hours < 12;
+        const additional = isAM ? ' am' : ' pm';
 
-      hours = hours % 12;
-      hours = (hours || 12).toString();
+        hours = hours % 12;
+        hours = (hours || 12).toString();
+        if (mins.length < 2) mins = '0' + mins;
+
+        return hours + (mins === '00' ? '' : ':' + mins) + additional;
+      }
+
+      hours = hours.toString();
+      if (hours.length < 2) hours = '0' + hours;
       if (mins.length < 2) mins = '0' + mins;
 
-      return hours + (mins === '00' ? '' : ':' + mins) + additional;
+      return hours + ':' + mins;
     }
 
-    hours = hours.toString();
-    if (hours.length < 2) hours = '0' + hours;
-    if (mins.length < 2) mins = '0' + mins;
-    return hours + ':' + mins;
+    return '';
   },
 
   dateOutOfRange (date, minDate, maxDate) {
@@ -178,7 +183,11 @@ const time = {
   },
 
   formatDate (date) {
-    return `${date.getDate()} ${time.getFullMonth(date)} ${date.getFullYear()}`;
+    if (date instanceof Date) {
+      return `${date.getDate()} ${time.getFullMonth(date)} ${date.getFullYear()}`;
+    }
+
+    return '';
   }
 };
 

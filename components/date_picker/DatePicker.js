@@ -42,7 +42,7 @@ class DatePicker extends React.Component {
   render () {
     const { inputClassName, value } = this.props;
     const inputFormat = this.props.inputFormat || time.formatDate;
-    const date = value ? inputFormat(value) : null;
+    const formattedValue = value ? inputFormat(value) : '';
 
     return (
       <div data-react-toolbox='date-picker'>
@@ -53,7 +53,7 @@ class DatePicker extends React.Component {
           label={this.props.label}
           readOnly
           type='text'
-          value={date}
+          value={formattedValue}
         />
         <DatePickerDialog
           autoOk={this.props.autoOk}

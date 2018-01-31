@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classnames from 'classnames';
 import events from '../utils/events';
-import time from '../utils/time';
+import timeUtil from '../utils/time';
 import style from './style';
 import Input from '../input';
 import TimePickerDialog from './TimePickerDialog';
@@ -11,6 +11,7 @@ class TimePicker extends React.Component {
   static propTypes = {
     className: PropTypes.string,
     error: PropTypes.string,
+    inputFormat: PropTypes.func,
     format: PropTypes.oneOf(['24hr', 'ampm']),
     inputClassName: PropTypes.string,
     label: PropTypes.string,
@@ -43,7 +44,9 @@ class TimePicker extends React.Component {
 
   render () {
     const { value, format, inputClassName } = this.props;
-    const formattedTime = value ? time.formatTime(value, format) : null;
+    const inputFormat = this.props.inputFormat || timeUtil.formatTime;
+    const formattedValue = value ? inputFormat(value, format) : '';
+
     return (
       <div data-react-toolbox='time-picker'>
         <Input
@@ -53,7 +56,7 @@ class TimePicker extends React.Component {
           onMouseDown={this.handleInputMouseDown}
           readOnly
           type='text'
-          value={formattedTime}
+          value={formattedValue}
         />
         <TimePickerDialog
           active={this.state.active}
