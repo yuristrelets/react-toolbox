@@ -50,7 +50,7 @@ class Overlay extends React.Component {
     }, this.props.className);
 
     return (
-      <Portal>
+      <Portal lockBody={!this.props.invisible}>
         <div className={className}>
           <div className={style.overlay} onClick={this.props.onClick} />
           {this.props.children}
