@@ -193,14 +193,14 @@ class Autocomplete extends React.Component {
  }
 
  render () {
-   const {error, label, ...other} = this.props;
+   const {error, label, source, selectedPosition, ...other} = this.props;
    const className = ClassNames(style.root, {
      [style.focus]: this.state.focus
    }, this.props.className);
 
    return (
      <div data-react-toolbox='autocomplete' className={className}>
-       {this.props.selectedPosition === 'above' ? this.renderSelected() : null}
+       {selectedPosition === 'above' ? this.renderSelected() : null}
        <Input
          {...other}
          ref='input'
@@ -214,7 +214,7 @@ class Autocomplete extends React.Component {
          value={this.state.query}
        />
        {this.renderSuggestions()}
-       {this.props.selectedPosition === 'below' ? this.renderSelected() : null}
+       {selectedPosition === 'below' ? this.renderSelected() : null}
      </div>
    );
  }
